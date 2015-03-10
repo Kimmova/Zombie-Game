@@ -5,7 +5,7 @@ public class PlayerMobillity : MonoBehaviour {
 
 	public float speed;
 
-	void FixedUpdate(){
+	void Update(){
 		var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, 
 		                                         Vector3.forward);
