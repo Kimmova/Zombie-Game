@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 8200c0b352d83b141aa078ffc8f85bc2
+guid: c0b42fb77db9b5d4f84b81f1873de27e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CharNoWep
-    21300002: CharKnife
-    21300004: CharGun
-    21300006: CharShotgun
-    21300008: CharUzi
-    21300010: CharTommy
-    21300012: CharMG4
-    21300014: CharBullpop
-    21300016: CharAuto
-    21300018: CharSniper
+    21300000: CharSniper
+    21300002: CharRapid
+    21300004: CharAuto
+    21300006: CharMP4
+    21300008: CharTommy
+    21300010: CharUzi
+    21300012: CharShotgun
+    21300014: CharPistol
+    21300016: CharKnife
+    21300018: CharNothing
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,103 +53,103 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: CharNoWep
+    - name: CharSniper
       rect:
         serializedVersion: 2
-        x: 5
-        y: 10
-        width: 27
-        height: 25
+        x: 13
+        y: 437
+        width: 25
+        height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CharKnife
+    - name: CharRapid
       rect:
         serializedVersion: 2
-        x: 53
-        y: 10
-        width: 31
-        height: 25
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CharGun
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 10
-        width: 35
-        height: 25
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CharShotgun
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 10
-        width: 41
-        height: 25
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CharUzi
-      rect:
-        serializedVersion: 2
-        x: 197
-        y: 10
-        width: 40
-        height: 25
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CharTommy
-      rect:
-        serializedVersion: 2
-        x: 245
-        y: 10
-        width: 40
-        height: 25
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CharMG4
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 10
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CharBullpop
-      rect:
-        serializedVersion: 2
-        x: 341
-        y: 10
-        width: 42
-        height: 25
+        x: 13
+        y: 389
+        width: 25
+        height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CharAuto
       rect:
         serializedVersion: 2
-        x: 389
-        y: 10
-        width: 43
-        height: 25
+        x: 13
+        y: 341
+        width: 25
+        height: 42
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CharSniper
+    - name: CharMP4
       rect:
         serializedVersion: 2
-        x: 437
-        y: 10
-        width: 43
-        height: 25
+        x: 13
+        y: 293
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CharTommy
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 245
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CharUzi
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 197
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CharShotgun
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 149
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CharPistol
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 101
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CharKnife
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 53
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CharNothing
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 5
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
