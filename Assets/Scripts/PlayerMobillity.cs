@@ -11,9 +11,8 @@ public class PlayerMobillity : MonoBehaviour {
 		                                         Vector3.forward);
 		transform.rotation = rot;
 		transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
-		rigidbody2D.angularVelocity = 0;
 
-		var input = Input.GetAxis ("Vertical");
-		rigidbody2D.AddForce (gameObject.transform.up * speed * input);
+		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+		transform.position += move * speed * Time.deltaTime;
 	}
 }
