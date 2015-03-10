@@ -1,0 +1,6 @@
+
+*.csproj
+
+Library/metadata/*
+
+*.sln
