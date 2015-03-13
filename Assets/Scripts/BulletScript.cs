@@ -3,15 +3,14 @@ using System.Collections;
 
 public class BulletScript : MonoBehaviour {
 
-	// Use this for initialization
-	public float bulletSpeed = 10;
-
+	public float speed;
 	void Start () {
+		rigidbody2D.velocity = transform.up * speed;
+	}
+
+	void Update(){
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

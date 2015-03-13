@@ -4,11 +4,14 @@ using System.Collections;
 public class PlayerMobillity : MonoBehaviour {
 
 	public float speed;
-	public GameObject Bullet;
+	public GameObject bulletPrefab;
+	public float fireRate;
 	public Transform shotSpawn;
+	public float coolDown;
+	public Vector3 mousePosition;
 
 	void Update(){
-		var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, 
 		                                         Vector3.forward);
 		transform.rotation = rot;
@@ -17,12 +20,11 @@ public class PlayerMobillity : MonoBehaviour {
 		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 		transform.position += move * speed * Time.deltaTime;
 
-		if (Input.GetMouseButtonDown (0))
-			Fire();
-	}
+		if (Input.GetMouseButtonDown (0) && Time.time > coolDown) {
+			coolDown = Time.time + fireRate;
+			Instantiate(bulletPrefab, shotSpawn.position, shotSpawn.rotation);
 
-	void Fire() 
-	{
-		Instantiate (Bullet, shotSpawn.position, shotSpawn.rotation);
+		}
 	}
+	
 }
