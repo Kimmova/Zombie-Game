@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerMobillity : MonoBehaviour {
 
 	public float speed;
+	public GameObject Bullet;
+	public Transform shotSpawn;
 
 	void Update(){
 		var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
@@ -14,5 +16,13 @@ public class PlayerMobillity : MonoBehaviour {
 
 		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 		transform.position += move * speed * Time.deltaTime;
+
+		if (Input.GetMouseButtonDown (0))
+			Fire();
+	}
+
+	void Fire() 
+	{
+		Instantiate (Bullet, shotSpawn.position, shotSpawn.rotation);
 	}
 }
