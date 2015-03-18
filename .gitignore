@@ -6,3 +6,18 @@ Library/metadata/*
 *.sln
 
 Temp/U*
+*.csproj
+
+Library/assetDatabase3
+
+Library/guidmapper
+
+Library/metadata/92/92b25c65d2744b946800ea231d177971
+
+*.dll
+
+*.mdb
+
+Temp/__EditModeScene
+
+*.userprefs

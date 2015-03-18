@@ -11,12 +11,13 @@ public class PlayerMobillity : MonoBehaviour {
 	private bool firing = false;
 
 	void Update(){
-		mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, 
-		                                         Vector3.forward);
-		transform.rotation = rot;
-		transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
+		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 moveDirection = (mousePosition - transform.position).normalized;
+		
+		float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);        
 
+		
 		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 		transform.position += move * speed * Time.deltaTime;
 
