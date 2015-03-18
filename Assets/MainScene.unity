@@ -193,6 +193,10 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11469724, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
+      propertyPath: hitPoints
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
   m_RootGameObject: {fileID: 1443502996}
@@ -465,6 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   Player: {fileID: 2046765814}
+  hitPoints: 100
 --- !u!1 &1534595675
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +571,10 @@ Prefab:
     - target: {fileID: 451548, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451548, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
+      propertyPath: fireRate
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
