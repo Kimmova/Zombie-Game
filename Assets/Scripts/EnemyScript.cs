@@ -5,6 +5,7 @@ public class EnemyScript : MonoBehaviour {
 
 	public float speed;
 	public Transform Player;
+	public float hitPoints;
 
 	void FixedUpdate()
 	{
@@ -12,5 +13,12 @@ public class EnemyScript : MonoBehaviour {
 
 		transform.eulerAngles = new Vector3 (0, 0, z);
 		rigidbody2D.AddForce (gameObject.transform.up * speed);
+	}
+
+	void HitWith(float damage) {
+		if (hitPoints - damage > 0) 
+			hitPoints = hitPoints - damage;
+		else
+			Destroy (gameObject);
 	}
 }
