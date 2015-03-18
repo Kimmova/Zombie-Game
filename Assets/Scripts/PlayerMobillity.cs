@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerMobillity : MonoBehaviour {
 
+	public Camera followCamera;
+
 	public float speed;
 	public GameObject bulletPrefab;
 	public float fireRate;
@@ -20,6 +22,11 @@ public class PlayerMobillity : MonoBehaviour {
 
 		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 		transform.position += move * speed * Time.deltaTime;
+
+		var newCamPos = transform.position;
+		newCamPos.z = followCamera.transform.position.z;
+
+		followCamera.transform.position = newCamPos;
 
 		if (Input.GetMouseButtonDown (0)) {
 			firing = true;
