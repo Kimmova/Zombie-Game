@@ -1,9 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMobillity.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerMobillity.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMobillity.cs" Line="11" Column="53" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

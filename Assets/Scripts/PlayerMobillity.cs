@@ -9,6 +9,7 @@ public class PlayerMobillity : MonoBehaviour {
 	public Transform shotSpawn;
 	public float coolDown;
 	public Vector3 mousePosition;
+	private bool firing = false;
 
 	void Update(){
 		mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
@@ -20,10 +21,17 @@ public class PlayerMobillity : MonoBehaviour {
 		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 		transform.position += move * speed * Time.deltaTime;
 
-		if (Input.GetMouseButtonDown (0) && Time.time > coolDown) {
+		if (Input.GetMouseButtonDown (0)) {
+			firing = true;
+		}
+
+		if (Input.GetMouseButtonUp (0)) {
+			firing = false;
+		}
+
+		if (firing && Time.time > coolDown) {
 			coolDown = Time.time + fireRate;
 			Instantiate(bulletPrefab, shotSpawn.position, shotSpawn.rotation);
-
 		}
 	}
 	
