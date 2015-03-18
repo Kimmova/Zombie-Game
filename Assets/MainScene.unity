@@ -399,6 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b155218efa4cf4f808c7d5d5bed3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  Player: {fileID: 2046765814}
 --- !u!1 &1534595675
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +494,10 @@ Prefab:
     - target: {fileID: 5051548, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
       propertyPath: m_FixedAngle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451548, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
+      propertyPath: speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
