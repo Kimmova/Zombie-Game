@@ -8,6 +8,7 @@ public class PlayerMobillity : MonoBehaviour {
 	public Transform shotSpawn;
 	public float coolDown;
 	public Vector3 mousePosition;
+	public float hitPoints;
 	private bool firing = false;
 
 	void Update(){
@@ -34,5 +35,11 @@ public class PlayerMobillity : MonoBehaviour {
 			Instantiate(bulletPrefab, shotSpawn.position, shotSpawn.rotation);
 		}
 	}
-	
+
+	void HitWith(float damage) {
+		if (hitPoints - damage > 0) 
+			hitPoints = hitPoints - damage;
+		else
+			Destroy (gameObject);
+	}
 }

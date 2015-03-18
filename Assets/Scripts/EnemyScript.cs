@@ -6,6 +6,9 @@ public class EnemyScript : MonoBehaviour {
 	public float speed;
 	public Transform Player;
 	public float hitPoints;
+	public float damage;
+	public float attackRate;
+	public float coolDown;
 
 	void FixedUpdate()
 	{
@@ -13,6 +16,22 @@ public class EnemyScript : MonoBehaviour {
 
 		transform.eulerAngles = new Vector3 (0, 0, z);
 		rigidbody2D.AddForce (gameObject.transform.up * speed);
+	}
+
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (col.gameObject.tag == "Player" && Time.time > coolDown) {
+			coolDown = Time.time + attackRate;
+			col.transform.SendMessage("HitWith", damage);
+		}
+	}
+
+	void OnCollisionStay2D(Collision2D col)
+	{
+		if (col.gameObject.tag == "Player" && Time.time > coolDown) {
+			coolDown = Time.time + attackRate;
+			col.transform.SendMessage("HitWith", damage);
+		}
 	}
 
 	void HitWith(float damage) {
