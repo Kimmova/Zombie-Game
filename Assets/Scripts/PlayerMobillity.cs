@@ -10,6 +10,7 @@ public class PlayerMobillity : MonoBehaviour {
 	public Vector3 mousePosition;
 	public float hitPoints;
 	private bool firing = false;
+	public AudioClip gunSound;
 
 	void Update(){
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -33,6 +34,7 @@ public class PlayerMobillity : MonoBehaviour {
 		if (firing && Time.time > coolDown) {
 			coolDown = Time.time + fireRate;
 			Instantiate(bulletPrefab, shotSpawn.position, shotSpawn.rotation);
+			audio.PlayOneShot (gunSound);
 		}
 	}
 

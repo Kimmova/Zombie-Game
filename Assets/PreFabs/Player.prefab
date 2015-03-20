@@ -102,6 +102,8 @@ MonoBehaviour:
   shotSpawn: {fileID: 451548}
   coolDown: .100000001
   mousePosition: {x: 0, y: 0, z: 0}
+  hitPoints: 0
+  gunSound: {fileID: 8300000, guid: e2781544f35c290439d19210a3fe5240, type: 3}
 --- !u!212 &21251548
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour {
 	public float speed;
 	public float damage;
 
+
 	void Update(){
 		transform.position += transform.up * speed * Time.deltaTime;
 	}
