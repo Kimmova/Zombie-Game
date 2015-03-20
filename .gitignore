@@ -23,3 +23,5 @@ Temp/__EditModeScene
 *.userprefs
 
 Assembly-CSharp.csproj
+
+Library/assetDatabase3
