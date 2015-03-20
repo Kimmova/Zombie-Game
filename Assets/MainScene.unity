@@ -84,10 +84,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 107116881}
   - 61: {fileID: 107116880}
-  - 114: {fileID: 107116882}
   m_Layer: 0
   m_Name: LeftCollider
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,17 +114,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 602712944}
   m_RootOrder: 1
---- !u!114 &107116882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 107116879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb834fd8855247049995f38a5799b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &123905862
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +186,7 @@ Transform:
   m_LocalScale: {x: 35, y: 35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &176863214
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,10 +196,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 176863216}
   - 61: {fileID: 176863215}
-  - 114: {fileID: 176863217}
   m_Layer: 0
   m_Name: BottomCollider
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,17 +226,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 602712944}
   m_RootOrder: 3
---- !u!114 &176863217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 176863214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb834fd8855247049995f38a5799b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &304342947
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +299,7 @@ GameObject:
   - 4: {fileID: 602712944}
   m_Layer: 0
   m_Name: LimitColliders
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,7 +479,7 @@ RectTransform:
   m_Children:
   - {fileID: 304342949}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -635,10 +611,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 731414587}
   - 61: {fileID: 731414586}
-  - 114: {fileID: 731414588}
   m_Layer: 0
   m_Name: RightCollider
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -666,17 +641,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 602712944}
   m_RootOrder: 0
---- !u!114 &731414588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 731414585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb834fd8855247049995f38a5799b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1319208814
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,10 +650,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1319208816}
   - 61: {fileID: 1319208815}
-  - 114: {fileID: 1319208817}
   m_Layer: 0
   m_Name: TopCollider
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -717,17 +680,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 602712944}
   m_RootOrder: 2
---- !u!114 &1319208817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1319208814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb834fd8855247049995f38a5799b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1443502996
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +803,7 @@ Transform:
   m_PrefabInternal: {fileID: 1903004936}
   m_GameObject: {fileID: 1534595675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.00999999978, y: .270000011, z: 0}
+  m_LocalPosition: {x: -.00999999978, y: .186000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2046765814}
@@ -938,6 +890,10 @@ Prefab:
     - target: {fileID: 11451548, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
       propertyPath: hitPoints
       value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 451548, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .186000004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}

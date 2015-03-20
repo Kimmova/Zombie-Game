@@ -12,6 +12,7 @@ GameObject:
   - 61: {fileID: 6116514}
   - 95: {fileID: 9516514}
   - 114: {fileID: 11480352}
+  - 50: {fileID: 5015052}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -31,6 +32,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5015052
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116514}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!61 &6116514
 BoxCollider2D:
   m_ObjectHideFlags: 1
