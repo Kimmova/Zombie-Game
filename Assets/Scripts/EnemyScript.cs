@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyScript : MonoBehaviour {
 
 	public float speed;
+	private float previousSpeed;
 	private Transform player;
 	public float hitPoints;
 	public float damage;
@@ -13,6 +14,7 @@ public class EnemyScript : MonoBehaviour {
 
 	void Start() {
 		player = GameObject.Find ("Player").transform;
+		previousSpeed = speed;
 	}
 
 	void FixedUpdate()
@@ -25,9 +27,12 @@ public class EnemyScript : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (col.gameObject.tag == "Player" && Time.time > coolDown) {
-			coolDown = Time.time + attackRate;
-			col.transform.SendMessage("HitWith", damage);
+		if (col.gameObject.tag == "Player") {
+			speed = 0;
+			if (Time.time > coolDown) {
+				coolDown = Time.time + attackRate;
+				col.transform.SendMessage("HitWith", damage); 
+			}
 		}
 	}
 
@@ -37,6 +42,10 @@ public class EnemyScript : MonoBehaviour {
 			coolDown = Time.time + attackRate;
 			col.transform.SendMessage("HitWith", damage);
 		}
+	}
+
+	void OnCollisionExit2D(Collision2D col) {
+		speed = previousSpeed;
 	}
 
 	void HitWith(float damage) {
