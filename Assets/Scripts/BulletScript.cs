@@ -17,5 +17,8 @@ public class BulletScript : MonoBehaviour {
 			col.transform.SendMessage("HitWith", damage);
 			Destroy (gameObject);
 		}
+		if (col.gameObject.tag == "Wall") {
+			Destroy (gameObject);
+		}
 	}
 }
