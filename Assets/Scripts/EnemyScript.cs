@@ -4,16 +4,20 @@ using System.Collections;
 public class EnemyScript : MonoBehaviour {
 
 	public float speed;
-	public Transform Player;
+	private Transform player;
 	public float hitPoints;
 	public float damage;
 	public float attackRate;
 	public float coolDown;
 	public GameObject bloodPrefab;
 
+	void Start() {
+		player = GameObject.Find ("Player").transform;
+	}
+
 	void FixedUpdate()
 	{
-		float z = Mathf.Atan2 ((Player.transform.position.y - transform.position.y), (Player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
+		float z = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
 
 		transform.eulerAngles = new Vector3 (0, 0, z);
 		rigidbody2D.AddForce (gameObject.transform.up * speed);

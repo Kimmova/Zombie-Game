@@ -3,8 +3,11 @@ using System.Collections;
 
 public class FollowPlayer : MonoBehaviour {
 
-	public GameObject objectToFollow;
+	private GameObject objectToFollow;
 
+	void Start() {
+		objectToFollow = GameObject.Find ("Player").gameObject;
+	}
 
 	void Update () {
 		var newCamPos = objectToFollow.transform.position;

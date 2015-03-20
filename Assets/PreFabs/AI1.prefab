@@ -54,7 +54,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 169724}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Size: {x: .25999999, y: .370000005}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11469724
@@ -68,8 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b155218efa4cf4f808c7d5d5bed3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  Player: {fileID: 0}
+  speed: 7
+  hitPoints: 100
+  damage: 25
+  attackRate: 1
+  coolDown: 1
+  bloodPrefab: {fileID: 175054, guid: 2b4cd2080049e584eaaf678ff676279f, type: 2}
 --- !u!212 &21269724
 SpriteRenderer:
   m_ObjectHideFlags: 1
