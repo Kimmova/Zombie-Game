@@ -509,6 +509,9 @@ MonoBehaviour:
   speed: 5
   Player: {fileID: 2046765814}
   hitPoints: 100
+  damage: 0
+  attackRate: 0
+  coolDown: 0
 --- !u!1 &1534595675
 GameObject:
   m_ObjectHideFlags: 0
