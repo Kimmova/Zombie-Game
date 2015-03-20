@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1789f4249ce3c1242a2e5fdb24beaf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodTimer: 100
+  bloodTimer: 200
   time: .100000001
 --- !u!212 &21275054
 SpriteRenderer:

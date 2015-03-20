@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour {
 	public float damage;
 	public float attackRate;
 	public float coolDown;
+	public GameObject bloodPrefab;
 
 	void FixedUpdate()
 	{
@@ -37,7 +38,10 @@ public class EnemyScript : MonoBehaviour {
 	void HitWith(float damage) {
 		if (hitPoints - damage > 0) 
 			hitPoints = hitPoints - damage;
-		else
+		else {
+			Instantiate(bloodPrefab, gameObject.transform.position, gameObject.transform.rotation);
 			Destroy (gameObject);
+
+		}
 	}
 }

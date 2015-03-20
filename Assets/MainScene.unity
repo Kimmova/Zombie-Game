@@ -403,6 +403,14 @@ Prefab:
       propertyPath: hitPoints
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11469724, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469724, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
+      propertyPath: bloodPrefab
+      value: 
+      objectReference: {fileID: 175054, guid: 2b4cd2080049e584eaaf678ff676279f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
   m_RootGameObject: {fileID: 1443502996}
@@ -814,12 +822,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b155218efa4cf4f808c7d5d5bed3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   Player: {fileID: 2046765814}
   hitPoints: 100
   damage: 0
   attackRate: 0
   coolDown: 0
+  bloodPrefab: {fileID: 175054, guid: 2b4cd2080049e584eaaf678ff676279f, type: 2}
 --- !u!1 &1534595675
 GameObject:
   m_ObjectHideFlags: 0
