@@ -17,10 +17,13 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	void Spawn() {
-		Vector3 spawnPoint = new Vector3 (
-			Random.Range(minSpawnPointX, maxSpawnPointX), 
-			Random.Range(minSpawnPointY, maxSpawnPointY), 
+		Vector3 spawnPoint;
+		do {
+			spawnPoint = new Vector3 (
+			Random.Range (minSpawnPointX, maxSpawnPointX), 
+			Random.Range (minSpawnPointY, maxSpawnPointY), 
 			0);
+		} while (Vector3.Distance(playerPrefab.transform.position, spawnPoint) < 4); 
 		Instantiate(
 			enemyPrefab, 
 			spawnPoint, 
