@@ -13,6 +13,7 @@ public class EnemyScript : MonoBehaviour {
 	public GameObject bloodPrefab;
 	public AudioClip zombieDeath;
 	private float maxHitPoints;
+	public Texture2D healthBarTexture;
 
 	void Start() {
 		player = GameObject.Find ("Player").transform;
@@ -53,10 +54,11 @@ public class EnemyScript : MonoBehaviour {
 
 	void OnGUI()
 	{
+		float healthPercent = hitPoints / maxHitPoints * 100;
 		Vector2 targetPos;
 		targetPos = Camera.main.WorldToScreenPoint (transform.position);
-		
-		GUI.Box(new Rect(targetPos.x, Screen.height- targetPos.y, 60, 20), hitPoints + "/" + maxHitPoints);
+		GUI.DrawTexture(new Rect(targetPos.x, Screen.height- targetPos.y, 100, 5), healthBarTexture);
+		GUI.Box(new Rect(targetPos.x, Screen.height- targetPos.y, 60, 20), "fuck");
 	}
 
 	void HitWith(float damage) {

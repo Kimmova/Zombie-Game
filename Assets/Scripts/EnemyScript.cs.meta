@@ -1,8 +1,15 @@
 fileFormatVersion: 2
 guid: 39b155218efa4cf4f808c7d5d5bed3c8
+timeCreated: 1427200679
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bloodPrefab: {fileID: 175054, guid: 2b4cd2080049e584eaaf678ff676279f, type: 2}
+  - zombieDeath: {fileID: 8300000, guid: 24af958ef2d3af24481376113fce01f5, type: 3}
+  - healthBarTexture: {fileID: 2800000, guid: fd3dc6320fd3a4773893daced4c9c852, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
