@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 39b155218efa4cf4f808c7d5d5bed3c8
-timeCreated: 1427193935
+guid: ad2c31de3c56c4e02ae4c962c3e08751
+timeCreated: 1427193980
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - bloodPrefab: {fileID: 175054, guid: 2b4cd2080049e584eaaf678ff676279f, type: 2}
+  - enemyPrefab: {fileID: 169724, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
