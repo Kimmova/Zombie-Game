@@ -12,9 +12,9 @@ public class BloodScript : MonoBehaviour {
 
 	void Deteriorate(){
 
-		Color color = renderer.material.color;
+		Color color = GetComponent<Renderer>().material.color;
 		color.a -= 100 / bloodTimer / 100;
-		renderer.material.color = color;
+		GetComponent<Renderer>().material.color = color;
 		if (color.a <= 0) {
 			Destroy (gameObject);
 		}

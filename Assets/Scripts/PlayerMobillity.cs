@@ -34,7 +34,7 @@ public class PlayerMobillity : MonoBehaviour {
 		if (firing && Time.time > coolDown) {
 			coolDown = Time.time + fireRate;
 			Instantiate(bulletPrefab, shotSpawn.position, shotSpawn.rotation);
-			audio.PlayOneShot (gunSound);
+			GetComponent<AudioSource>().PlayOneShot (gunSound);
 		}
 	}
 
