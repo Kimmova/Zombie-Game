@@ -11,7 +11,6 @@ public class PlayerMobillity : MonoBehaviour {
 	public float hitPoints;
 	private bool firing = false;
 	public AudioClip gunSound;
-
 	void Update(){
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 moveDirection = (mousePosition - transform.position).normalized;
@@ -39,7 +38,7 @@ public class PlayerMobillity : MonoBehaviour {
 	}
 
 	void HitWith(float damage) {
-		if (hitPoints - damage > 0) 
+		if (hitPoints - damage > 0)
 			hitPoints = hitPoints - damage;
 		else
 			Destroy (gameObject);

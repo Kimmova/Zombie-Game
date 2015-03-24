@@ -25,3 +25,13 @@ Temp/__EditModeScene
 Assembly-CSharp.csproj
 
 Library/assetDatabase3
+
+*.bin
+
+*.mdb
+
+*.dll
+
+Library/metadata/92/92b25c65d2744b946800ea231d177971
+
+Library/assetDatabase3
