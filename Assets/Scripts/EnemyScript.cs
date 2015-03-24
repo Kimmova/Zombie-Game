@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour {
 	public float attackRate;
 	public float coolDown;
 	public GameObject bloodPrefab;
+	public AudioClip zombieDeath;
 
 	void Start() {
 		player = GameObject.Find ("Player").transform;
@@ -52,6 +53,7 @@ public class EnemyScript : MonoBehaviour {
 		if (hitPoints - damage > 0) 
 			hitPoints = hitPoints - damage;
 		else {
+			AudioSource.PlayClipAtPoint(zombieDeath, transform.position);
 			Instantiate(bloodPrefab, gameObject.transform.position, gameObject.transform.rotation);
 			Destroy (gameObject);
 
