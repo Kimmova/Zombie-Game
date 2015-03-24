@@ -11,6 +11,7 @@ public class PlayerMobillity : MonoBehaviour {
 	public float hitPoints;
 	private bool firing = false;
 	public AudioClip gunSound;
+
 	void Update(){
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 moveDirection = (mousePosition - transform.position).normalized;

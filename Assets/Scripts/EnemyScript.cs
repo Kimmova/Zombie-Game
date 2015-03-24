@@ -12,12 +12,14 @@ public class EnemyScript : MonoBehaviour {
 	public float coolDown;
 	public GameObject bloodPrefab;
 	public AudioClip zombieDeath;
+	private float maxHitPoints;
 
 	void Start() {
 		player = GameObject.Find ("Player").transform;
 		previousSpeed = speed;
+		maxHitPoints = hitPoints;
 	}
-
+	
 	void FixedUpdate()
 	{
 		float z = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
@@ -49,6 +51,14 @@ public class EnemyScript : MonoBehaviour {
 		speed = previousSpeed;
 	}
 
+	void OnGUI()
+	{
+		Vector2 targetPos;
+		targetPos = Camera.main.WorldToScreenPoint (transform.position);
+		
+		GUI.Box(new Rect(targetPos.x, Screen.height- targetPos.y, 60, 20), hitPoints + "/" + maxHitPoints);
+	}
+
 	void HitWith(float damage) {
 		if (hitPoints - damage > 0) 
 			hitPoints = hitPoints - damage;
@@ -56,7 +66,7 @@ public class EnemyScript : MonoBehaviour {
 			AudioSource.PlayClipAtPoint(zombieDeath, transform.position);
 			Instantiate(bloodPrefab, gameObject.transform.position, gameObject.transform.rotation);
 			Destroy (gameObject);
-
+			((FollowPlayer) FindObjectOfType (typeof(FollowPlayer))).ZombieKilled();
 		}
 	}
 }
