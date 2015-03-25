@@ -29,5 +29,6 @@ public class EnemySpawner : MonoBehaviour {
 			spawnPoint, 
 			Quaternion.AngleAxis((Mathf.Atan2 ((playerPrefab.transform.position.y - transform.position.y), 
 		                                  (playerPrefab.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90), Vector3.forward));
+		Globals.ZombieSpawned ();
 	}
 }
