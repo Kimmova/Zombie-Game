@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .605000019, y: .0170000009, z: 0}
+  m_LocalPosition: {x: .605000019, y: .0170000009, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480058}
@@ -208,6 +208,12 @@ MonoBehaviour:
   coolDown: .100000001
   mousePosition: {x: 0, y: 0, z: 0}
   hitPoints: 2000
+  ability1CooldownTime: 0
+  ability1Duration: 0
+  ability1FireRateBoost: 0
+  ability1Speed: 0
+  ability1KillsRequired: 0
+  ability1Unlocked: 0
   gunSound: {fileID: 8300000, guid: e2781544f35c290439d19210a3fe5240, type: 3}
 --- !u!212 &21280058
 SpriteRenderer:
