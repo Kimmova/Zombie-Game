@@ -147,7 +147,7 @@ MonoBehaviour:
   coolDown: 1
   bloodPrefab: {fileID: 175054, guid: 2b4cd2080049e584eaaf678ff676279f, type: 2}
   zombieDeath: {fileID: 8300000, guid: 24af958ef2d3af24481376113fce01f5, type: 3}
-  mainCamera: {fileID: 0}
+  testDistance: 0
 --- !u!212 &21232450
 SpriteRenderer:
   m_ObjectHideFlags: 1
