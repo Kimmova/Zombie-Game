@@ -13,8 +13,8 @@ public class EnemyScript : MonoBehaviour {
 	public GameObject bloodPrefab;
 	public AudioClip zombieDeath;
 	private float maxHitPoints;
-	public Camera mainCamera;
 	private Rigidbody2D thisRigidBody;
+	public float testDistance;
 
 	void Start() {
 		player = GameObject.Find ("Player").transform;
@@ -58,7 +58,11 @@ public class EnemyScript : MonoBehaviour {
 	{
 		Vector2 targetPos;
 		targetPos = Camera.main.WorldToScreenPoint (transform.position);
-		GUI.Box(new Rect(targetPos.x, Screen.height- targetPos.y, 45, 20), (hitPoints/maxHitPoints*100) + " %");
+		Vector2 playerPos;
+		playerPos = Camera.main.WorldToScreenPoint (player.position);
+
+		if (Vector2.Distance(playerPos, targetPos) < 125)
+			GUI.Box(new Rect(targetPos.x, Screen.height- targetPos.y, 45, 20), (hitPoints/maxHitPoints*100) + " %");
 	}
 
 	void HitWith(float damage) {

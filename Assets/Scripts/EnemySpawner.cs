@@ -18,12 +18,16 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Spawn() {
 		Vector3 spawnPoint;
+		Vector3 playerPos;
+		playerPos = Camera.main.WorldToScreenPoint (playerPrefab.transform.position);
+		playerPos.z = transform.position.z;
+
 		do {
 			spawnPoint = new Vector3 (
 			Random.Range (minSpawnPointX, maxSpawnPointX), 
 			Random.Range (minSpawnPointY, maxSpawnPointY), 
-			0);
-		} while (Vector3.Distance(playerPrefab.transform.position, spawnPoint) < 4); 
+			transform.position.z);
+		} while (Vector3.Distance(playerPos, spawnPoint) < 400); 
 		Instantiate(
 			enemyPrefab, 
 			spawnPoint, 
