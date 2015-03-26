@@ -39,8 +39,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d587002fcc4154da93ad62a410d03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 124724, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
+  enemy1Prefab: {fileID: 124724, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
+  enemy2Prefab: {fileID: 150774, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+  enemy3Prefab: {fileID: 172154, guid: 2a2a4e508ff4b8c44a6c9d102f7265ca, type: 2}
+  enemy4Prefab: {fileID: 185284, guid: 5f4dc59bc27ae124b99de357f7326a31, type: 2}
   spawnsPerMinute: 100
+  totalSpawns: 0
   maxSpawnPointX: 12
   maxSpawnPointY: 12
   minSpawnPointX: -12
