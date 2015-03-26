@@ -255,6 +255,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78ba93767ff464985a4dbeb4144ce8de, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &997041217
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 462908, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.22865987
+      objectReference: {fileID: 0}
+    - target: {fileID: 462908, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.479023367
+      objectReference: {fileID: 0}
+    - target: {fileID: 462908, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 462908, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462908, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462908, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462908, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 462908, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9d2dd8e4cb40c8d43924bb3761f7aa11, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1193681644
 Prefab:
   m_ObjectHideFlags: 0
@@ -292,6 +334,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466990, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
       propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493060, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493060, guid: 3a96e331467064ab4ab78454c98a17b4, type: 2}
+      propertyPath: damage
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -355,6 +405,10 @@ Prefab:
     - target: {fileID: 11480058, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
       propertyPath: ability1KillsRequired
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11480058, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
+      propertyPath: hitPoints
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 10826404, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}

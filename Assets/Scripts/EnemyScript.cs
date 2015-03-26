@@ -62,7 +62,7 @@ public class EnemyScript : MonoBehaviour {
 		playerPos = Camera.main.WorldToScreenPoint (player.position);
 
 		if (Vector2.Distance(playerPos, targetPos) < 125)
-			GUI.Box(new Rect(targetPos.x, Screen.height- targetPos.y, 45, 20), (hitPoints/maxHitPoints*100) + " %");
+			GUI.Box(new Rect(targetPos.x, Screen.height- targetPos.y, 45, 20), Mathf.Floor((hitPoints/maxHitPoints*100)) + " %");
 	}
 
 	void HitWith(float damage) {

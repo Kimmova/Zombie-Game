@@ -207,7 +207,7 @@ MonoBehaviour:
   shotSpawn: {fileID: 480058}
   coolDown: .100000001
   mousePosition: {x: 0, y: 0, z: 0}
-  hitPoints: 2000
+  hitPoints: 100
   ability1CooldownTime: 0
   ability1Duration: 0
   ability1FireRateBoost: 0
