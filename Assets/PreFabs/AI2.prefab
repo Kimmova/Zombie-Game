@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  hitPoints: 150
+  hitPoints: 100
   damage: 10
   attackRate: 1
   coolDown: 1
