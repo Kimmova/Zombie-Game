@@ -16,6 +16,7 @@ public class EnemyScript : MonoBehaviour {
 	private Rigidbody2D thisRigidBody;
 	public float testDistance;
 
+
 	void Start() {
 		player = GameObject.Find ("Player").transform;
 		previousSpeed = speed;
@@ -66,6 +67,7 @@ public class EnemyScript : MonoBehaviour {
 	}
 
 	void HitWith(float damage) {
+
 		if (hitPoints - damage > 0) 
 			hitPoints = hitPoints - damage;
 		else {

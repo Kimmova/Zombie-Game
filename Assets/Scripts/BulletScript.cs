@@ -5,6 +5,7 @@ public class BulletScript : MonoBehaviour {
 
 	public float speed;
 	public float damage;
+	public AudioClip BodyImpact;
 
 
 	void Update(){
@@ -15,6 +16,7 @@ public class BulletScript : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Enemy") {
 			col.transform.SendMessage("HitWith", damage);
+			AudioSource.PlayClipAtPoint(BodyImpact, transform.position);
 			Destroy (gameObject);
 		}
 		if (col.gameObject.tag == "Wall") {
