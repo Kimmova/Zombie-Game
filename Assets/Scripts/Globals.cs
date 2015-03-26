@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public static class Globals : object {
+public static class Globals {
 
 	private static object lockobj = new object();
 	private static float _zombieKills = 0;
-	private static float _totalZombies = 1;
+	private static float _totalZombies = 0;
 	private static GameObject _player;
 	private static GameObject _spawner;
 	private static List<Ability> _abilities;
@@ -37,6 +37,10 @@ public static class Globals : object {
 
 	public static List<Ability> Abilities {
 		get { return _abilities; }
+	}
+
+	public static List<Level> Levels {
+		get { return _levels; }
 	}
 
 	public static void AddNewAbility(Ability ability) {

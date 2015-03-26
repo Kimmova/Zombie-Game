@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject enemy4Prefab;
 	public float spawnsPerMinute;
 	public float totalSpawns;
+	private float currentSpawns = 0;
 	public int maxSpawnPointX;
 	public int maxSpawnPointY;
 	public int minSpawnPointX;
@@ -17,12 +18,14 @@ public class EnemySpawner : MonoBehaviour {
 	private GameObject currentPrefab;
 
 	void Start() {
-		InvokeRepeating ("Spawn", 5, 60 / spawnsPerMinute);
+		//InvokeRepeating ("Spawn", 5, 60 / spawnsPerMinute);
 		playerPrefab = GameObject.Find ("Player").gameObject;
 		currentPrefab = enemy1Prefab;
+		SetLevel (Globals.Levels [1]);
 	}
 
 	void SetLevel(Level level) {
+
 		switch (level.ID) {
 		case 1:
 			currentPrefab = enemy1Prefab;
@@ -36,29 +39,38 @@ public class EnemySpawner : MonoBehaviour {
 		case 4:
 			currentPrefab = enemy4Prefab;
 			break;
+		default:
+			currentPrefab = enemy4Prefab;
+			break;
 		}
 
 		spawnsPerMinute = level.SpawnsPerMinute;
 		totalSpawns = level.TotalSpawns;
+		InvokeRepeating ("Spawn", 5, 60 / spawnsPerMinute);
 	}
 
 	void Spawn() {
-		Vector3 spawnPoint;
-		Vector3 playerPos;
-		playerPos = Camera.main.WorldToScreenPoint (playerPrefab.transform.position);
-		playerPos.z = transform.position.z;
+		if (currentSpawns >= totalSpawns)
+			CancelInvoke ();
+		else {
+			Vector3 spawnPoint;
+			Vector3 playerPos;
+			playerPos = Camera.main.WorldToScreenPoint (playerPrefab.transform.position);
+			playerPos.z = transform.position.z;
 
-		do {
-			spawnPoint = new Vector3 (
+			do {
+				spawnPoint = new Vector3 (
 			Random.Range (minSpawnPointX, maxSpawnPointX), 
 			Random.Range (minSpawnPointY, maxSpawnPointY), 
 			transform.position.z);
-		} while (Vector3.Distance(playerPos, spawnPoint) < 400); 
-		Instantiate(
+			} while (Vector3.Distance(playerPos, spawnPoint) < 400); 
+			Instantiate (
 			currentPrefab, 
 			spawnPoint, 
-			Quaternion.AngleAxis((Mathf.Atan2 ((playerPrefab.transform.position.y - transform.position.y), 
+			Quaternion.AngleAxis ((Mathf.Atan2 ((playerPrefab.transform.position.y - transform.position.y), 
 		                                  (playerPrefab.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90), Vector3.forward));
-		Globals.ZombieSpawned ();
+			Globals.ZombieSpawned ();
+			currentSpawns++;
+		}
 	}
 }
