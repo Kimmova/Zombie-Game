@@ -21,6 +21,7 @@ public class PlayerMobillity : MonoBehaviour {
 	private bool firing = false;
 	private float zombieKills = 0;
 	public AudioClip gunSound;
+	public AudioClip PlayerDamage;
 
 	void Start() {
 		ability1Cooldown = Time.time;
@@ -78,6 +79,8 @@ public class PlayerMobillity : MonoBehaviour {
 	}
 
 	void HitWith(float damage) {
+
+		GetComponent<AudioSource>().PlayOneShot (PlayerDamage);
 		if (hitPoints - damage > 0)
 			hitPoints = hitPoints - damage;
 		else
