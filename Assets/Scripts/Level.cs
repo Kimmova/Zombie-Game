@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level : MonoBehaviour {
+public class Level {
 	public int ID { get; set; }
 	public float SpawnsPerMinute { get; set; }
 	public float TotalSpawns { get; set; }

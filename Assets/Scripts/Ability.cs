@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Ability : MonoBehaviour {
+public abstract class Ability {
 	public int ID { get; set; }
 	public float Cooldown { get; set; }
 	public float Duration { get; set; }

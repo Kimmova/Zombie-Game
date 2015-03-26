@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour {
 		}
 
 		spawnsPerMinute = level.SpawnsPerMinute;
-		totalSpawns = level.TotalSpawns;
+		totalSpawns += level.TotalSpawns;
 		InvokeRepeating ("Spawn", 5, 60 / spawnsPerMinute);
 	}
 
