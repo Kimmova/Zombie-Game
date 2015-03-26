@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FollowPlayer : MonoBehaviour {
 
@@ -28,7 +29,16 @@ public class FollowPlayer : MonoBehaviour {
 		GUI.Label (new Rect (100, 30, 100, 20), Globals.ZombieKills.ToString());
 		GUI.Label (new Rect (10, 50, 100, 20), "Zombies alive: ");
 		GUI.Label (new Rect (100, 50, 100, 20), Globals.ZombiesAlive.ToString());
-		GUI.Label (new Rect (10, 70, 100, 20), "Ability 1 (F): ");
-		GUI.Label (new Rect (100, 70, 200, 20), player.Ability1ReadyIn());
+		float yPos = 70;
+		List<int> ids = new List<int>();
+		foreach (Ability a in Globals.Abilities) {
+			if (ids.Contains(a.ID)) {
+				GUI.Label (new Rect (10, yPos, 100, 20), "Ability " + a.ID + " - L" + a.Level + " - (" + a.ActivationKey.ToString() + "): ");
+				GUI.Label (new Rect (100, yPos, 200, 20), player.AbilityReadyIn (a.ID, a.KillsRequired));
+				yPos += 20;
+			}
+			else
+				ids.Add(a.ID);
+		}
 	}
 }

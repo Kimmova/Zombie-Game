@@ -15,16 +15,41 @@ public static class Globals {
 	private static float killsForNextLevel;
 
 	static Globals() {
+		_abilities = new List<Ability> ();
 		_levels = new List<Level> ();
 		_levels.Add (new Level(0, 0, 0));
 		for (int i = 1; i < 20; i++) {
 			_levels.Add(new Level(i, i*10, i*10));
 		}
 		killsForNextLevel = _levels[currentLevel].TotalSpawns;
-		//_levels.Add(new Level(1, 10, 10, (GameObject) Resources.Load("../PreFabs/AI1")));
-		//_levels.Add(new Level(2, 20, 20));
-		//_levels.Add(new Level(3, 30, 30));
-		//_levels.Add(new Level(4, 40, 40));
+
+		for (int i = 1; i < 3; i++) {
+			var newAb = new Ability ();
+			newAb.ID = 1;
+			newAb.Cooldown = i * 60;
+			newAb.Duration = i * 5;
+			newAb.Level = i * 1;
+			newAb.FireRateBoost = i * 25;
+			newAb.ActionSpeed = i * 10;
+			newAb.KillsRequired = i * 50;
+			newAb.Unlocked = false;
+			newAb.ActivationKey = KeyCode.F;
+			_abilities.Add (newAb);
+		}
+
+		for (int i = 1; i < 3; i++) {
+			var newAb = new Ability ();
+			newAb.ID = 2;
+			newAb.Cooldown = i * 60;
+			newAb.Duration = i * 5;
+			newAb.Level = i * 1;
+			newAb.FireRateBoost = i * 25;
+			newAb.ActionSpeed = i * 10;
+			newAb.KillsRequired = i * 50;
+			newAb.Unlocked = false;
+			newAb.ActivationKey = KeyCode.G;
+			_abilities.Add (newAb);
+		}
 	}
 
 	public static float ZombieKills {
@@ -60,6 +85,11 @@ public static class Globals {
 			currentLevel++;
 			_spawner.SendMessage ("SetLevel", _levels[currentLevel]);
 			killsForNextLevel += _levels [currentLevel].TotalSpawns;
+		}
+
+		foreach (Ability a in _abilities) {
+			if (_zombieKills >= a.KillsRequired)
+				_player.SendMessage("AbilityUnlocked", a);
 		}
 	}
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerMobillity : MonoBehaviour {
 	public float speed;
@@ -9,54 +10,42 @@ public class PlayerMobillity : MonoBehaviour {
 	public float coolDown;
 	public Vector3 mousePosition;
 	public float hitPoints;
-	public float ability1CooldownTime;
-	private float ability1Cooldown;
-	public float ability1Duration;
-	private float ability1EndTime;
-	public float ability1FireRateBoost;
-	public float ability1Speed;
-	private bool ability1Active = false;
-	public float ability1KillsRequired;
-	public bool ability1Unlocked = false;
+	List<Ability> unlockedAbilities;
+	List<float> abilityCooldowns;
+	private Ability activeAbility;
+	private float abilityEndsAt;
 	private bool firing = false;
 	private float zombieKills = 0;
 	public AudioClip gunSound;
 	public AudioClip PlayerDamage;
 
 	void Start() {
-		ability1Cooldown = Time.time;
+		unlockedAbilities = new List<Ability> ();
+		abilityCooldowns = new List<float> ();
+		activeAbility = null;
 	}
 
 	void Update(){
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 moveDirection = (mousePosition - transform.position).normalized;
 
-
 		float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
 
-		// Ability 1
-		if (zombieKills >= ability1KillsRequired)
-			ability1Unlocked = true;
-
-		if (ability1Unlocked && Input.GetKeyDown (KeyCode.F) && ability1Cooldown <= Time.time) {
-			ability1Active = true;
-			ability1EndTime = Time.time + ability1Duration;
-			ability1Cooldown = ability1EndTime + ability1CooldownTime;
-			firing = true;
+		for (int i = 0; i < abilityCooldowns.Count; i++) {
+			if (Input.GetKeyDown(unlockedAbilities[i].ActivationKey) && abilityCooldowns[i] <= Time.time) {
+				ActivateAbility(unlockedAbilities[i], i);
+			}
 		}
 
-		if (ability1Active) {
-			if (ability1EndTime <= Time.time) {
-				ability1Active = false;
+		if (activeAbility != null) {
+			if (abilityEndsAt <= Time.time) {
+				activeAbility = null;
 				firing = false;
 			}
-			else
-				transform.Rotate(0, 0, 10 * ability1Speed * Time.deltaTime);
 		}
-		else
-			transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-		
+		transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+
 		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 		transform.position += move * speed * Time.deltaTime;
 
@@ -69,8 +58,8 @@ public class PlayerMobillity : MonoBehaviour {
 		}
 
 		if (firing && Time.time > coolDown) {
-			if (ability1Active)
-				coolDown = Time.time + fireRate / ability1FireRateBoost;
+			if (activeAbility != null)
+				coolDown = Time.time + fireRate / activeAbility.FireRateBoost;
 			else
 				coolDown = Time.time + fireRate;
 			Instantiate(bulletPrefab, shotSpawn.position, shotSpawn.rotation);
@@ -87,21 +76,50 @@ public class PlayerMobillity : MonoBehaviour {
 			Destroy (gameObject);
 	}
 
-	void Ability1(Quaternion rotation) {
-		transform.rotation = rotation;
+	void AbilityUnlocked(Ability newAbility) {
+		unlockedAbilities.Add (newAbility);
+		abilityCooldowns.Add (Time.time);
+	}
+
+	void ActivateAbility(Ability ability, int index) {
+		switch (ability.ID) {
+		case 1:
+			firing = true;
+			break;
+		case 2:
+			firing = true;
+			break;
+		default:
+			return;
+			break;
+		}
+		abilityCooldowns [index] = Time.time + ability.Duration + ability.Cooldown;
+		abilityEndsAt = Time.time + ability.Duration;
+		activeAbility = ability;
 	}
 
 	void ZombieKilled() {
 		zombieKills++;
 	}
 
-	public string Ability1ReadyIn() {
-		if (zombieKills < ability1KillsRequired)
-			return "Locked (" + (ability1KillsRequired - zombieKills) + " more kills)";
-		if (ability1Active)
-			return "Active... " + Mathf.Floor(ability1EndTime - Time.time) + " s";
-		if (ability1Cooldown > Time.time)
-			return "Cooldown... " + Mathf.Floor(ability1Cooldown - Time.time).ToString() + " s";
+	public string AbilityReadyIn(int abilityId, float killsReq) {
+		int index = 0;
+		for (int i = 0; i < unlockedAbilities.Count; i++) {
+			if (unlockedAbilities[i].ID == abilityId) {
+				index = i;
+				break;
+			}
+			else return "Error!";
+		}
+		if (index == 0 || unlockedAbilities[index] == null) 
+			return "Locked (" + (killsReq - zombieKills) + " more kills)";
+
+		if (zombieKills < unlockedAbilities[index].KillsRequired)
+			return "Locked (" + (unlockedAbilities[index].KillsRequired - zombieKills) + " more kills)";
+		if (activeAbility != null && activeAbility.ID == abilityId)
+			return "Active... " + Mathf.Floor(abilityEndsAt - Time.time) + " s"; // ERROR HERE, FIX LATER!!!
+		if (abilityCooldowns[index] > Time.time)
+			return "Cooldown... " + Mathf.Floor(abilityCooldowns[index] - Time.time).ToString() + " s";
 		else
 			return "Ready!";
 	}
