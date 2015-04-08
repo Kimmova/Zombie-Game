@@ -30,6 +30,11 @@ public class FollowPlayer : MonoBehaviour {
 		abilities = Globals.AvailableAbilities();
 	}
 
+	void IncreaseLight() {
+		var light = GameObject.Find ("Spotlight").GetComponent<Light>();
+		light.spotAngle += 10;
+	}
+
 	void OnGUI () {
 		GUI.Label (new Rect (10, 10, 100, 20), "Health: ");
 		GUI.Label (new Rect (100, 10, 100, 20), health + " (" + Mathf.Floor(health / maxHealth * 100f) + "%)");
@@ -48,5 +53,6 @@ public class FollowPlayer : MonoBehaviour {
 			else
 				ids.Add(a.ID);
 		}
+		GUI.Label (new Rect (10, yPos + 20, 220, 30), "Next Light Upgrade: " + (Globals.NextLightUpgrade - Globals.ZombieKills) + " more kills");
 	}
 }

@@ -15,6 +15,8 @@ public static class Globals {
 	private static List<Level> _levels;
 	private static int currentLevel = 1;
 	private static float killsForNextLevel;
+	private static GameObject cameraScript;
+	private static float _nextLightUpgrade = 20;
 
 	static Globals() {
 		_abilities = new List<Ability> ();
@@ -22,7 +24,7 @@ public static class Globals {
 		_levels = new List<Level> ();
 		_levels.Add (new Level(0, 0, 0));
 		for (int i = 1; i < 20; i++) {
-			_levels.Add(new Level(i, i*10, i*10));
+			_levels.Add(new Level(i, i*50, i*10));
 		}
 		killsForNextLevel = _levels[currentLevel].TotalSpawns;
 
@@ -61,6 +63,10 @@ public static class Globals {
 
 	public static float ZombiesAlive {
 		get { return _totalZombies; }
+	}
+
+	public static float NextLightUpgrade {
+		get { return _nextLightUpgrade; }
 	}
 
 	public static List<Ability> Abilities() {
@@ -107,6 +113,8 @@ public static class Globals {
 	public static void ZombieKilled() {
 		if (_player == null)
 			_player = GameObject.Find ("Player");
+		if (cameraScript == null)
+			cameraScript = GameObject.Find ("Main Camera");
 		lock (lockobj) {
 			_zombieKills++;
 			_totalZombies--;
@@ -122,6 +130,11 @@ public static class Globals {
 		foreach (Ability a in AvailableAbilities()) {
 			if (_zombieKills >= a.KillsRequired)
 				_player.SendMessage("AbilityUnlocked", a);
+		}
+
+		if (_zombieKills >= _nextLightUpgrade) {
+			cameraScript.SendMessage ("IncreaseLight");
+			_nextLightUpgrade += _nextLightUpgrade * 2;
 		}
 	}
 
