@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public static class Globals {
 
@@ -31,7 +32,7 @@ public static class Globals {
 			newAb.Level = i * 1;
 			newAb.FireRateBoost = i * 25;
 			newAb.ActionSpeed = i * 10;
-			newAb.KillsRequired = i * 50;
+			newAb.KillsRequired = i * 2;
 			newAb.Unlocked = false;
 			newAb.ActivationKey = KeyCode.F;
 			_abilities.Add (newAb);
@@ -45,7 +46,7 @@ public static class Globals {
 			newAb.Level = i * 1;
 			newAb.FireRateBoost = i * 25;
 			newAb.ActionSpeed = i * 10;
-			newAb.KillsRequired = i * 50;
+			newAb.KillsRequired = i * 5;
 			newAb.Unlocked = false;
 			newAb.ActivationKey = KeyCode.G;
 			_abilities.Add (newAb);
@@ -60,8 +61,16 @@ public static class Globals {
 		get { return _totalZombies; }
 	}
 
-	public static List<Ability> Abilities {
-		get { return _abilities; }
+	public static List<Ability> Abilities() {
+		var unique = _abilities.GroupBy(
+			a => a.ID,
+			(key, group) => group.First()
+			).ToList();
+		var availableAbilities = _abilities.Where (a => a.KillsRequired <= ZombieKills).ToList();
+		if (availableAbilities.Count > unique.Count)
+			return availableAbilities;
+		else
+			return unique;
 	}
 
 	public static List<Level> Levels {

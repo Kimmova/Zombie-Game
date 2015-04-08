@@ -77,8 +77,10 @@ public class PlayerMobillity : MonoBehaviour {
 	}
 
 	void AbilityUnlocked(Ability newAbility) {
-		unlockedAbilities.Add (newAbility);
-		abilityCooldowns.Add (Time.time);
+		if (!unlockedAbilities.Contains (newAbility)) {
+			unlockedAbilities.Add (newAbility);
+			abilityCooldowns.Add (Time.time);
+		}
 	}
 
 	void ActivateAbility(Ability ability, int index) {
@@ -103,15 +105,14 @@ public class PlayerMobillity : MonoBehaviour {
 	}
 
 	public string AbilityReadyIn(int abilityId, float killsReq) {
-		int index = 0;
+		int index = -1;
 		for (int i = 0; i < unlockedAbilities.Count; i++) {
 			if (unlockedAbilities[i].ID == abilityId) {
 				index = i;
 				break;
 			}
-			else return "Error!";
 		}
-		if (index == 0 || unlockedAbilities[index] == null) 
+		if (index == -1 || unlockedAbilities[index] == null) 
 			return "Locked (" + (killsReq - zombieKills) + " more kills)";
 
 		if (zombieKills < unlockedAbilities[index].KillsRequired)

@@ -7,10 +7,14 @@ public class FollowPlayer : MonoBehaviour {
 	private float health;
 	private float maxHealth;
 	private PlayerMobillity player;
+	List<int> ids;
+	List<Ability> abilities;
 
 	void Start() {
 		player = (PlayerMobillity) FindObjectOfType (typeof(PlayerMobillity));
 		maxHealth = player.hitPoints;
+		ids = new List<int> ();
+		abilities = Globals.Abilities();
 	}
 
 	void Update () {
@@ -30,11 +34,11 @@ public class FollowPlayer : MonoBehaviour {
 		GUI.Label (new Rect (10, 50, 100, 20), "Zombies alive: ");
 		GUI.Label (new Rect (100, 50, 100, 20), Globals.ZombiesAlive.ToString());
 		float yPos = 70;
-		List<int> ids = new List<int>();
-		foreach (Ability a in Globals.Abilities) {
+
+		foreach (Ability a in abilities) {
 			if (ids.Contains(a.ID)) {
-				GUI.Label (new Rect (10, yPos, 100, 20), "Ability " + a.ID + " - L" + a.Level + " - (" + a.ActivationKey.ToString() + "): ");
-				GUI.Label (new Rect (100, yPos, 200, 20), player.AbilityReadyIn (a.ID, a.KillsRequired));
+				GUI.Label (new Rect (10, yPos, 120, 20), "Ability " + a.ID + " - L" + a.Level + " - (" + a.ActivationKey.ToString() + "): ");
+				GUI.Label (new Rect (120, yPos, 200, 20), player.AbilityReadyIn (a.ID, a.KillsRequired));
 				yPos += 20;
 			}
 			else
