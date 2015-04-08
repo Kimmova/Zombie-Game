@@ -34,7 +34,7 @@ public static class Globals {
 			newAb.Level = i * 1;
 			newAb.FireRateBoost = i * 25;
 			newAb.ActionSpeed = i * 10;
-			newAb.KillsRequired = i * 2;
+			newAb.KillsRequired = i * 15;
 			newAb.Unlocked = false;
 			newAb.ActivationKey = KeyCode.F;
 			_abilities.Add (newAb);
@@ -48,7 +48,7 @@ public static class Globals {
 			newAb.Level = i * 1;
 			newAb.FireRateBoost = i * 25;
 			newAb.ActionSpeed = i * 10;
-			newAb.KillsRequired = i * 5;
+			newAb.KillsRequired = i * 25;
 			newAb.Unlocked = false;
 			newAb.ActivationKey = KeyCode.G;
 			_abilities.Add (newAb);
@@ -87,7 +87,7 @@ public static class Globals {
 			}
 			else {
 				var existing = available.Find(av => av.ID == a.ID);
-				if (a.KillsRequired < ZombieKills && a.Level > existing.Level) {
+				if (a.KillsRequired <= ZombieKills && a.Level > existing.Level) {
 					available.Remove(existing);
 					available.Add(a);
 				}
