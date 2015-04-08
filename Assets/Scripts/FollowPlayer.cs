@@ -14,7 +14,7 @@ public class FollowPlayer : MonoBehaviour {
 		player = (PlayerMobillity) FindObjectOfType (typeof(PlayerMobillity));
 		maxHealth = player.hitPoints;
 		ids = new List<int> ();
-		abilities = Globals.Abilities();
+		abilities = Globals.AvailableAbilities();
 	}
 
 	void Update () {
@@ -24,6 +24,10 @@ public class FollowPlayer : MonoBehaviour {
 		transform.position = newCamPos;
 
 		health = player.hitPoints;
+	}
+
+	void UpdateAbilities() {
+		abilities = Globals.AvailableAbilities();
 	}
 
 	void OnGUI () {

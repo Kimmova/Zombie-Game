@@ -11,12 +11,14 @@ public static class Globals {
 	private static GameObject _player;
 	private static GameObject _spawner;
 	private static List<Ability> _abilities;
+	private static List<Ability> _availableAbilities;
 	private static List<Level> _levels;
 	private static int currentLevel = 1;
 	private static float killsForNextLevel;
 
 	static Globals() {
 		_abilities = new List<Ability> ();
+		_availableAbilities = new List<Ability> ();
 		_levels = new List<Level> ();
 		_levels.Add (new Level(0, 0, 0));
 		for (int i = 1; i < 20; i++) {
@@ -67,10 +69,31 @@ public static class Globals {
 			(key, group) => group.First()
 			).ToList();
 		var availableAbilities = _abilities.Where (a => a.KillsRequired <= ZombieKills).ToList();
+		availableAbilities.OrderByDescending (a => a.Level).GroupBy(
+			a => a.ID,
+			(key, group) => group.First()
+			).ToList();;
 		if (availableAbilities.Count > unique.Count)
 			return availableAbilities;
 		else
 			return unique;
+	}
+
+	public static List<Ability> AvailableAbilities() {
+		List<Ability> available = new List<Ability> ();
+		foreach (Ability a in _abilities) {
+			if (!available.Exists(av => av.ID == a.ID)) {
+				available.Add(a);
+			}
+			else {
+				var existing = available.Find(av => av.ID == a.ID);
+				if (a.KillsRequired < ZombieKills && a.Level > existing.Level) {
+					available.Remove(existing);
+					available.Add(a);
+				}
+			}
+		}
+		return available;
 	}
 
 	public static List<Level> Levels {
@@ -96,7 +119,7 @@ public static class Globals {
 			killsForNextLevel += _levels [currentLevel].TotalSpawns;
 		}
 
-		foreach (Ability a in _abilities) {
+		foreach (Ability a in AvailableAbilities()) {
 			if (_zombieKills >= a.KillsRequired)
 				_player.SendMessage("AbilityUnlocked", a);
 		}

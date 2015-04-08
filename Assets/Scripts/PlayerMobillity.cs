@@ -18,6 +18,7 @@ public class PlayerMobillity : MonoBehaviour {
 	private float zombieKills = 0;
 	public AudioClip gunSound;
 	public AudioClip PlayerDamage;
+	public GameObject cameraScript;
 
 	void Start() {
 		unlockedAbilities = new List<Ability> ();
@@ -77,9 +78,17 @@ public class PlayerMobillity : MonoBehaviour {
 	}
 
 	void AbilityUnlocked(Ability newAbility) {
-		if (!unlockedAbilities.Contains (newAbility)) {
+		if (!unlockedAbilities.Exists (a => a.ID == newAbility.ID)) {
 			unlockedAbilities.Add (newAbility);
 			abilityCooldowns.Add (Time.time);
+		} 
+		else {
+			for (int i = 0; i < unlockedAbilities.Count; i++) {
+				if (unlockedAbilities[i].ID == newAbility.ID) {
+					unlockedAbilities[i] = newAbility;
+					cameraScript.SendMessage("UpdateAbilities");
+				}
+			}
 		}
 	}
 

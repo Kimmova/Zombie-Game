@@ -326,6 +326,10 @@ Prefab:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11480058, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
+      propertyPath: cameraScript
+      value: 
+      objectReference: {fileID: 1945678640}
     m_RemovedComponents:
     - {fileID: 10826404, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
