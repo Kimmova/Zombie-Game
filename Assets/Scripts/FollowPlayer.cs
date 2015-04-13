@@ -9,6 +9,7 @@ public class FollowPlayer : MonoBehaviour {
 	private PlayerMobillity player;
 	public GameObject playerArrow;
 	public GameObject radar;
+	public Texture2D enemyMark;
 	List<int> ids;
 	List<Ability> abilities;
 	private Vector3 radarAdjustment = new Vector3(0, 0.05f, 0);
@@ -60,5 +61,26 @@ public class FollowPlayer : MonoBehaviour {
 				ids.Add(a.ID);
 		}
 		GUI.Label (new Rect (10, yPos + 20, 220, 30), "Next Light Upgrade: " + (Globals.NextLightUpgrade - Globals.ZombieKills) + " more kills");
+		drawEnemiesOnRadar ();
+	}
+
+	void drawEnemiesOnRadar() {
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+
+		foreach (GameObject enemy in enemies) {
+			Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
+			Vector2 enemyPos = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
+
+			float distance = Vector2.Distance(playerPos, enemyPos);
+			if (distance > 8)
+				continue;
+
+			Vector3 radarPos = Camera.main.WorldToScreenPoint(radar.transform.position);
+
+			float markX = playerPos.x - enemyPos.x;
+			float markY = playerPos.y - enemyPos.y;
+
+			GUI.DrawTexture(new Rect(radarPos.x - markX * 10, radarPos.y * radar.transform.localScale.y * 1.6f + markY * 10, 5, 5), enemyMark);
+		}
 	}
 }
