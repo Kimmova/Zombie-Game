@@ -7,14 +7,18 @@ public class FollowPlayer : MonoBehaviour {
 	private float health;
 	private float maxHealth;
 	private PlayerMobillity player;
+	public GameObject playerArrow;
+	public GameObject radar;
 	List<int> ids;
 	List<Ability> abilities;
+	private Vector3 radarAdjustment = new Vector3(0, 0.05f, 0);
 
 	void Start() {
 		player = (PlayerMobillity) FindObjectOfType (typeof(PlayerMobillity));
 		maxHealth = player.hitPoints;
 		ids = new List<int> ();
 		abilities = Globals.AvailableAbilities();
+		playerArrow = (GameObject) Instantiate(playerArrow, radar.transform.position, radar.transform.rotation);
 	}
 
 	void Update () {
@@ -24,6 +28,8 @@ public class FollowPlayer : MonoBehaviour {
 		transform.position = newCamPos;
 
 		health = player.hitPoints;
+		playerArrow.transform.position = radar.transform.position + radarAdjustment;
+		playerArrow.transform.rotation = player.transform.rotation;
 	}
 
 	void UpdateAbilities() {

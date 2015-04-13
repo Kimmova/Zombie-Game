@@ -338,6 +338,18 @@ Prefab:
       propertyPath: cameraScript
       value: 
       objectReference: {fileID: 1945678640}
+    - target: {fileID: 11480058, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
+      propertyPath: PlayerArrow
+      value: 
+      objectReference: {fileID: 172552, guid: ae7305f7e1c554b579338b3307fb36a6, type: 2}
+    - target: {fileID: 11480058, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
+      propertyPath: playerArrow
+      value: 
+      objectReference: {fileID: 172552, guid: ae7305f7e1c554b579338b3307fb36a6, type: 2}
+    - target: {fileID: 11480058, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
+      propertyPath: radar
+      value: 
+      objectReference: {fileID: 1765521828}
     m_RemovedComponents:
     - {fileID: 10826404, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a45f40c3f46354b49b334bbe752f5516, type: 2}
