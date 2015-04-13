@@ -80,7 +80,7 @@ public class FollowPlayer : MonoBehaviour {
 			float markX = playerPos.x - enemyPos.x;
 			float markY = playerPos.y - enemyPos.y;
 
-			GUI.DrawTexture(new Rect(radarPos.x - markX * 10, radarPos.y * radar.transform.localScale.y * 1.6f + markY * 10, 5, 5), enemyMark);
+			GUI.DrawTexture(new Rect(radarPos.x - markX * 10, radarPos.y * radar.transform.localScale.y * 1.6f + markY * 10, 10, 10), enemyMark);
 		}
 	}
 }

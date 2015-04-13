@@ -57,6 +57,17 @@ public static class Globals {
 		}
 	}
 
+	public static void ResetVariables() {
+		_zombieKills = 0;
+		_totalZombies = 0;
+		currentLevel = 1;
+		_nextLightUpgrade = 20;
+		killsForNextLevel = _levels[currentLevel].TotalSpawns;
+		if (_spawner == null)
+			_spawner = GameObject.Find ("Spawner");
+		_spawner.SendMessage ("Reset");
+	}
+
 	public static float ZombieKills {
 		get { return _zombieKills; }
 	}

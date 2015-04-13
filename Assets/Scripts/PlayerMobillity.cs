@@ -24,6 +24,8 @@ public class PlayerMobillity : MonoBehaviour {
 		unlockedAbilities = new List<Ability> ();
 		abilityCooldowns = new List<float> ();
 		activeAbility = null;
+		
+		Globals.ResetVariables();
 	}
 
 	void Update(){
@@ -73,8 +75,13 @@ public class PlayerMobillity : MonoBehaviour {
 		GetComponent<AudioSource>().PlayOneShot (PlayerDamage);
 		if (hitPoints - damage > 0)
 			hitPoints = hitPoints - damage;
-		else
+		else {
+			Time.timeScale = 0;
+			foreach (GameObject any in GameObject.FindObjectsOfType<GameObject>())
+				Destroy(any);
 			Destroy (gameObject);
+			Application.LoadLevel ("DeathScreen");
+		}
 	}
 
 	void AbilityUnlocked(Ability newAbility) {

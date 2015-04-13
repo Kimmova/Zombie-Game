@@ -24,6 +24,11 @@ public class EnemySpawner : MonoBehaviour {
 		SetLevel (Globals.Levels [1]);
 	}
 
+	void Reset() {
+		currentSpawns = 0;
+		totalSpawns = 0;
+	}
+
 	void SetLevel(Level level) {
 
 		switch (level.ID) {
@@ -55,15 +60,17 @@ public class EnemySpawner : MonoBehaviour {
 		else {
 			Vector3 spawnPoint;
 			Vector3 playerPos;
-			playerPos = Camera.main.WorldToScreenPoint (playerPrefab.transform.position);
-			playerPos.z = transform.position.z;
+			playerPos = playerPrefab.transform.position;
+			Vector2 playerPos2D = new Vector2(playerPos.x, playerPos.y);
+			Vector2 spawnPoint2D;
 
 			do {
 				spawnPoint = new Vector3 (
-			Random.Range (minSpawnPointX, maxSpawnPointX), 
-			Random.Range (minSpawnPointY, maxSpawnPointY), 
-			transform.position.z);
-			} while (Vector3.Distance(playerPos, spawnPoint) < 400); 
+				Random.Range (minSpawnPointX, maxSpawnPointX), 
+				Random.Range (minSpawnPointY, maxSpawnPointY), 
+				transform.position.z);
+				spawnPoint2D = new Vector2(spawnPoint.x, spawnPoint.y);
+			} while (Vector2.Distance(playerPos2D, spawnPoint2D) < 10); 
 			Instantiate (
 			currentPrefab, 
 			spawnPoint, 
