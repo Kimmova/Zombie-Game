@@ -24,8 +24,6 @@ public class PlayerMobillity : MonoBehaviour {
 		unlockedAbilities = new List<Ability> ();
 		abilityCooldowns = new List<float> ();
 		activeAbility = null;
-		
-		Globals.ResetVariables();
 	}
 
 	void Update(){

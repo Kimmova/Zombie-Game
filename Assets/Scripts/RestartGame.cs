@@ -12,6 +12,8 @@ public class RestartGame : MonoBehaviour {
 		}
 		if (GUI.Button (new Rect (500, 400, 200, 100), "Retry!")) {
 			Application.LoadLevel ("MainScene");
+			
+			Globals.ResetVariables();
 		}
 	}
 }

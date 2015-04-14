@@ -17,6 +17,11 @@ public static class Globals {
 	private static float killsForNextLevel;
 	private static GameObject cameraScript;
 	private static float _nextLightUpgrade = 20;
+	private static float fogDistance = 125;
+
+	public static float FogDistance {
+		get { return fogDistance; }
+	}
 
 	static Globals() {
 		_abilities = new List<Ability> ();
@@ -146,6 +151,7 @@ public static class Globals {
 		if (_zombieKills >= _nextLightUpgrade) {
 			cameraScript.SendMessage ("IncreaseLight");
 			_nextLightUpgrade += _nextLightUpgrade * 2;
+			fogDistance += 100;
 		}
 	}
 

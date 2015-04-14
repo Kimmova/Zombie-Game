@@ -62,7 +62,7 @@ public class EnemyScript : MonoBehaviour {
 		Vector2 playerPos;
 		playerPos = Camera.main.WorldToScreenPoint (player.position);
 
-		if (Vector2.Distance(playerPos, targetPos) < 125)
+		if (Vector2.Distance(playerPos, targetPos) < Globals.FogDistance)
 			GUI.Box(new Rect(targetPos.x, Screen.height- targetPos.y, 45, 20), Mathf.Floor((hitPoints/maxHitPoints*100)) + " %");
 	}
 
